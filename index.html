@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MCI — Centro Médico de Itajaí | Exames de imagem com agilidade e acolhimento</title>
-<meta name="description" content="Clínica de diagnóstico por imagem em Itajaí. Ressonância, tomografia, ultrassom, mamografia e mais — com tecnologia, convênios e condições facilitadas. Agende pelo WhatsApp.">
+<meta name="description" content="Referência em diagnóstico por imagem em Itajaí: ressonância, tomografia, ultrassom, mamografia, raio-X, densitometria, ECG e biópsias, com tecnologia de ponta e atendimento humanizado. Agende pelo WhatsApp.">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preload" as="image" href="img/hero-familia.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,6 +59,7 @@ header{
 @media(max-width:860px){
   .hero-art .b1{top:1%;left:2%}
   .hero-art .b2{bottom:4%;right:2%}
+  .hero-art .b3{bottom:20%;left:2%}
   .hero-art .badge{padding:9px 12px;font-size:.8rem}
   .hero-art .badge .dot{width:28px;height:28px}
   .hero-art .badge small{font-size:.68rem}
@@ -108,7 +109,7 @@ header{
 .eyebrow::before{content:"";width:22px;height:2px;background:var(--terra)}
 .hero h1{font-size:clamp(2.3rem,5vw,3.5rem);margin-bottom:18px}
 .hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero p.lead{font-size:1.18rem;color:var(--cinza);max-width:50ch;margin-bottom:28px}
+.hero p.lead{font-size:1.18rem;color:var(--cinza);max-width:56ch;margin-bottom:28px}
 
 /* localizador — signature element */
 .finder{background:#fff;border-radius:var(--r);box-shadow:var(--sombra);padding:22px;border:1px solid var(--linha)}
@@ -140,6 +141,7 @@ header{
 .hero-art .badge small{display:block;font-weight:400;font-size:.74rem;color:var(--cinza)}
 .hero-art .b1{top:2%;left:-3%}
 .hero-art .b2{bottom:8%;right:-3%}
+.hero-art .b3{bottom:22%;left:-3%}
 
 .hero-art .badge .dot{width:34px;height:34px;border-radius:9px;background:var(--grad-suave);display:grid;place-items:center;color:var(--terra)}
 .hero-art .badge svg{width:18px;height:18px}
@@ -294,7 +296,8 @@ footer ul a:hover{color:#fff}
 .exam-item:hover{border-color:var(--terra)}
 .exam-item .dot{width:9px;height:9px;border-radius:50%;background:var(--grad);margin-top:8px;flex-shrink:0}
 .exam-item b{font-size:1rem;display:block;margin-bottom:2px}
-.exam-item small{color:var(--cinza);font-size:.85rem}
+.exam-item small{color:var(--cinza);font-size:.85rem;display:block}
+.exam-item .pedido{display:block;margin-top:5px;font-size:.8rem;font-weight:700;color:var(--terra)}
 
 .prep{background:#fff;border:1px solid var(--linha);border-radius:var(--r);padding:32px}
 .prep h3{font-size:1.3rem;margin-bottom:18px;display:flex;align-items:center;gap:10px}
@@ -407,6 +410,7 @@ footer ul a:hover{color:#fff}
   .fgrid{grid-template-columns:1fr}
   .cub{padding:30px}
 }
+@media(max-width:480px){.hero-art .b3{display:none}}
 @media(max-width:400px){
   .container{padding:0 16px}
   h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
@@ -459,9 +463,9 @@ footer ul a:hover{color:#fff}
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow">Centro Médico de Itajaí · +10 anos</span>
+        <span class="eyebrow">Referência em diagnóstico por imagem em Itajaí</span>
         <h1>Acima de qualquer exame, <em>cuidamos de vidas.</em></h1>
-        <p class="lead">Diagnóstico por imagem com tecnologia, agilidade e o acolhimento de quem atende você pelo nome.</p>
+        <p class="lead">Tecnologia de ponta com o cuidado humanizado de quem se importa com cada resultado.</p>
         <div class="finder">
           <h3>🔍 Tem um pedido médico em mãos?</h3>
           <p>Encontre seu exame e agende em minutos.</p>
@@ -477,13 +481,14 @@ footer ul a:hover{color:#fff}
         <img src="img/hero-familia.webp" alt="Família reunida e sorrindo — pacientes da MCI" class="hero-photo" width="1000" height="808" fetchpriority="high">
         <div class="badge b1"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg></span><span>Laudo por especialista<small>Confiança no resultado</small></span></div>
         <div class="badge b2"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h18M7 15h2m4 0h4M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></svg></span><span>Parcela no cartão<small>5% off no Pix</small></span></div>
+        <div class="badge b3"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><span>Diagnóstico por imagem<small>Prevenção e qualidade de vida</small></span></div>
       </div>
     </div>
   </section>
 
   <section class="trust">
     <div class="container row">
-      <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3Z"/></svg> Equipamentos modernos</div>
+      <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg> Atendimento humanizado</div>
       <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Convênios credenciados</div>
       <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Resultados com agilidade</div>
       <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.5-1.5 2-3 2-5a9 9 0 1 0-9 9c2 0 3.5-.5 5-2"/><path d="m9 12 2 2 4-4"/></svg> Ambiente amplo e silencioso</div>
@@ -732,8 +737,8 @@ footer ul a:hover{color:#fff}
       <div class="crumb"><a href="#home" onclick="go('home')">Início</a><span>›</span> A MCI</div>
       <div style="max-width:640px">
         <span class="eyebrow">Quem somos</span>
-        <h1>Grandes na tecnologia, próximos no trato</h1>
-        <p class="d">A MCI é a clínica de exames de imagem de Itajaí que une precisão diagnóstica e atendimento humanizado — para o público particular, pacientes de convênios e empresas parceiras.</p>
+        <h1>Diagnóstico moderno, com ética, agilidade e humanização</h1>
+        <p class="d">A MCI é um centro de exames e diagnóstico por imagem em Itajaí que une tecnologia de referência, equipe qualificada e um atendimento humanizado, pensado para o conforto, a segurança e o cuidado de cada paciente.</p>
       </div>
     </div>
   </section>
@@ -847,7 +852,7 @@ footer ul a:hover{color:#fff}
     <div class="fgrid">
       <div class="fbrand">
         <div class="flogo"><img src="img/icone-mci.webp" alt="" width="40" height="38"><span class="wm">mci</span></div>
-        <p>Centro Médico de Itajaí. Diagnóstico por imagem com tecnologia e acolhimento, há mais de 10 anos.</p>
+        <p>Referência em diagnóstico por imagem em Itajaí. Tecnologia de ponta com o cuidado humanizado de quem se importa com cada resultado.</p>
       </div>
       <div>
         <h4>Exames</h4>
@@ -890,6 +895,7 @@ const ICON = {
   mamo:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8a8 8 0 0 1 16 0c0 6-4 10-8 10S4 14 4 8Z"/><circle cx="12" cy="9" r="1.5" fill="currentColor"/></svg>',
   rx:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 7v10M12 7v10M15 7v10M9 11h6"/></svg>',
   dens:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 4c2 1 2 3 1 5s-1 4 1 5 2 4 0 6M14 4c-1 2 0 3 2 4s3 3 1 5-1 4 1 6"/></svg>',
+  bio:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 2 4 4M17 7l3-3M19 9l-8.5 8.5a2 2 0 0 1-2.8 0l-1.2-1.2a2 2 0 0 1 0-2.8L15 5M9 11l4 4M5 19l-3 3M6.5 17.5 5 19"/></svg>',
   ecg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l2-6 4 12 2-6h8"/></svg>'
 };
 
@@ -899,12 +905,13 @@ const MODALIDADES = {
     desc:'Imagem detalhada de tecidos moles e estruturas internas, sem radiação ionizante. Indicada para investigar com profundidade articulações, coluna e o sistema nervoso.',
     aside:'Exame sem radiação. O preparo varia conforme a região e o uso de contraste.',
     exames:[
-      ['Ressonância de crânio','Investigação de dores de cabeça e enxaquecas'],
-      ['Ressonância de coluna','Lombar e cervical — dores que não passam'],
-      ['Ressonância de joelho','Lesões de esporte e desgaste articular'],
-      ['Ressonância de articulações','Ombro, quadril e demais articulações'],
-      ['Ressonância de abdome','Avaliação detalhada dos órgãos abdominais'],
-      ['Ressonância de próstata','Avaliação detalhada da próstata']
+      ['Ressonância de crânio','Investigação de dores de cabeça e enxaquecas','RM Crânio (Encéfalo)'],
+      ['Ressonância de coluna','Lombar e cervical — dores que não passam','RM Coluna Cervical / Torácica / Lombar'],
+      ['Ressonância de joelho','Lesões de esporte e desgaste articular','RM Joelho'],
+      ['Ressonância de articulações','Ombro, quadril e demais articulações','RM Ombro / Quadril / Articulação'],
+      ['Ressonância de abdome','Avaliação detalhada dos órgãos abdominais','RM Abdome Superior / Total'],
+      ['Ressonância cardíaca','Dinâmica, com e sem estresse — avaliação do coração e do miocárdio','RM Cardíaca','rm coracao rm dinamica cardiaca rm miocardio rm morfologica cardiaca ressonancia do coracao estresse'],
+      ['Ressonância de próstata','Avaliação detalhada da próstata','RM Próstata (Multiparamétrica)']
     ],
     prep:['Chegue com alguns minutos de antecedência e traga seus exames anteriores, se tiver.','Informe se tem implantes metálicos, marca-passo ou se está grávida.','Retire objetos metálicos (joias, piercings) antes do exame.','Para alguns exames com contraste, pode haver orientação de jejum leve.']
   },
@@ -913,11 +920,11 @@ const MODALIDADES = {
     desc:'Tomografia com apoio de inteligência artificial no processamento das imagens, contribuindo para exames mais ágeis e detalhados. Tecnologia Multi Slice para cortes precisos.',
     aside:'Inclui a angiotomografia de coronárias com escore de cálcio, que pode auxiliar na estimativa de risco cardiovascular.',
     exames:[
-      ['Tomografia de crânio','Avaliação detalhada da cabeça'],
-      ['Tomografia de tórax','Pulmões e estruturas torácicas'],
-      ['Tomografia de abdome','Investigação de órgãos abdominais'],
-      ['Angiotomografia de coronárias','Com escore de cálcio — avalia risco do coração'],
-      ['Tomografia de seios da face','Sinusite e estruturas da face']
+      ['Tomografia de crânio','Avaliação detalhada da cabeça','TC Crânio'],
+      ['Tomografia de tórax','Pulmões e estruturas torácicas','TC Tórax'],
+      ['Tomografia de abdome','Investigação de órgãos abdominais','TC Abdome Total'],
+      ['Angiotomografia de coronárias','Com escore de cálcio — avalia risco do coração','Angiotomografia de Coronárias + Escore de Cálcio'],
+      ['Tomografia de seios da face','Sinusite e estruturas da face','TC Seios da Face']
     ],
     prep:['Para alguns exames pode ser necessário jejum — confirmamos no agendamento.','Traga exames anteriores e o pedido médico.','Informe alergias a contraste, se houver.','Use roupas confortáveis e sem metais na região a ser examinada.']
   },
@@ -926,15 +933,15 @@ const MODALIDADES = {
     desc:'Avalia órgãos e estruturas em tempo real. Com o recurso de Doppler, analisa também o fluxo sanguíneo. Equipamento Aplio-A da Canon, de alta definição.',
     aside:'A modalidade mais versátil da clínica. Muitos exames não exigem pedido para orientação — confirme pelo WhatsApp.',
     exames:[
-      ['US de abdome total','Fígado, vesícula, rins e demais órgãos'],
-      ['US transvaginal / pélvico','Saúde da mulher e investigação pélvica'],
-      ['US de mamas','Avaliação de nódulos e alterações'],
-      ['US de tireoide','Investigação de nódulos e da tireoide'],
-      ['US obstétrico','Acompanhamento da gestação'],
-      ['Doppler de carótidas e vertebrais','Fluxo sanguíneo do pescoço'],
-      ['Doppler vascular (pernas)','Circulação e varizes'],
-      ['US de próstata','Avaliação da próstata'],
-      ['US de bolsa escrotal com Doppler','Avaliação testicular com fluxo']
+      ['US de abdome total','Fígado, vesícula, rins e demais órgãos','US Abdome Total'],
+      ['US transvaginal / pélvico','Saúde da mulher e investigação pélvica','US Transvaginal / Pélvica'],
+      ['US de mamas','Avaliação de nódulos e alterações','US Mamas'],
+      ['US de tireoide','Investigação de nódulos e da tireoide','US Tireoide'],
+      ['US obstétrico','Acompanhamento da gestação','US Obstétrica'],
+      ['Doppler de carótidas e vertebrais','Fluxo sanguíneo do pescoço','Doppler de Carótidas e Vertebrais'],
+      ['Doppler vascular (pernas)','Circulação e varizes','Doppler Venoso / Arterial de Membros Inferiores'],
+      ['US de próstata','Avaliação da próstata','US Próstata (via abdominal)'],
+      ['US de bolsa escrotal com Doppler','Avaliação testicular com fluxo','US Bolsa Escrotal com Doppler']
     ],
     prep:['US de abdome: costuma pedir jejum — confirmamos as horas no agendamento.','US pélvico/transvaginal e de próstata: pode ser necessário estar com a bexiga cheia.','Traga o pedido médico e exames anteriores.','Roupas práticas facilitam o acesso à região do exame.']
   },
@@ -943,8 +950,8 @@ const MODALIDADES = {
     desc:'Exame de imagem das mamas que auxilia na detecção precoce de alterações. Um dos principais aliados da saúde da mulher.',
     aside:'A periodicidade ideal varia de pessoa para pessoa. Geralmente a partir dos 40 anos, ou antes se houver histórico familiar — converse com seu médico.',
     exames:[
-      ['Mamografia digital de rastreamento','Exame preventivo de rotina'],
-      ['Mamografia diagnóstica','Investigação de alterações já percebidas']
+      ['Mamografia digital de rastreamento','Exame preventivo de rotina','Mamografia Digital Bilateral'],
+      ['Mamografia diagnóstica','Investigação de alterações já percebidas','Mamografia Digital Bilateral']
     ],
     prep:['Evite usar desodorante, talco ou cremes nas mamas e axilas no dia do exame.','Se possível, agende para a semana após a menstruação, quando as mamas estão menos sensíveis.','Traga mamografias anteriores para comparação.','Informe se está grávida ou amamentando.']
   },
@@ -953,10 +960,10 @@ const MODALIDADES = {
     desc:'Radiografia digital de diversas regiões do corpo. Com tecnologia digital, a imagem fica pronta em poucos segundos — agilidade real para você.',
     aside:'Imagem em segundos. Um diferencial concreto de rapidez no atendimento.',
     exames:[
-      ['Raio-X de tórax','Pulmões, coração e caixa torácica'],
-      ['Raio-X de coluna','Investigação de dores e desvios'],
-      ['Raio-X de ossos e articulações','Fraturas, traumas e desgastes'],
-      ['Raio-X de abdome','Avaliação inicial da região abdominal']
+      ['Raio-X de tórax','Pulmões, coração e caixa torácica','RX Tórax PA e Perfil'],
+      ['Raio-X de coluna','Investigação de dores e desvios','RX Coluna Cervical / Torácica / Lombar'],
+      ['Raio-X de ossos e articulações','Fraturas, traumas e desgastes','RX Ossos e Articulações'],
+      ['Raio-X de abdome','Avaliação inicial da região abdominal','RX Abdome Simples']
     ],
     prep:['Geralmente não exige preparo específico.','Retire objetos metálicos da região a ser examinada.','Informe se está grávida antes do exame.','Traga o pedido médico.']
   },
@@ -965,16 +972,28 @@ const MODALIDADES = {
     desc:'Auxilia na avaliação da saúde dos ossos e na investigação de osteoporose. Exame rápido, indolor e sem preparo complexo.',
     aside:'Especialmente relevante na pós-menopausa e para acompanhamento da saúde óssea ao longo da vida.',
     exames:[
-      ['Densitometria de coluna e fêmur','Avaliação da densidade óssea e rastreio de osteoporose']
+      ['Densitometria de coluna e fêmur','Avaliação da densidade óssea e rastreio de osteoporose','Densitometria Óssea (Coluna e Fêmur)']
     ],
     prep:['Não tome suplementos de cálcio nas 24h anteriores ao exame.','Use roupas sem botões, zíperes ou metais na região.','Informe se fez exames com contraste recentemente.','Traga densitometrias anteriores, se tiver.']
+  },
+  biopsias:{
+    icon:'bio', gen:'sua', nome:'Biópsias e Punções', cta:'Vamos agendar seu procedimento?',
+    desc:'Procedimentos minimamente invasivos, guiados por ultrassom, que coletam uma pequena amostra de células ou tecido para análise. A amostra segue para o nosso laboratório parceiro.',
+    aside:'Guiados por ultrassom, com precisão e cuidado em cada etapa. O preparo e a liberação do resultado são explicados no agendamento.',
+    exames:[
+      ['PAAF de tireoide','Punção aspirativa por agulha fina de nódulo da tireoide','PAAF de Tireoide'],
+      ['PAAF de mama','Punção aspirativa por agulha fina de nódulo ou cisto mamário','PAAF de Mama'],
+      ['Core biópsia de mama','Biópsia por agulha grossa guiada por ultrassom','Core Biópsia de Mama'],
+      ['Biópsia de próstata','Biópsia guiada por ultrassom transretal','Biópsia de Próstata']
+    ],
+    prep:['Informe se usa anticoagulante, AAS ou outro medicamento que afine o sangue — a orientação sobre suspender é sempre do seu médico.','Traga o pedido médico e os exames de imagem anteriores (ultrassom, mamografia).','Se possível, venha com um acompanhante.','Alguns procedimentos pedem jejum leve ou preparo específico — confirmamos no agendamento.']
   },
   ecg:{
     icon:'ecg', gen:'seu', nome:'Eletrocardiograma (ECG)',
     desc:'Registra a atividade elétrica do coração. Exame simples, rápido e fundamental na avaliação cardiovascular.',
     aside:'Rápido e indolor. Frequentemente solicitado em check-ups e avaliações de rotina.',
     exames:[
-      ['Eletrocardiograma de repouso','Registro da atividade elétrica do coração']
+      ['Eletrocardiograma de repouso','Registro da atividade elétrica do coração','ECG Convencional']
     ],
     prep:['Não é necessário jejum.','Evite cremes ou óleos no tórax no dia do exame.','Use roupas de fácil acesso ao tórax.','Traga o pedido médico e exames cardíacos anteriores.']
   }
@@ -1009,7 +1028,7 @@ function show(view, key){
 
 function renderModalidade(key){
   const m = MODALIDADES[key]; if(!m) return;
-  const examItems = m.exames.map(e=>`<div class="exam-item"><span class="dot"></span><div><b>${e[0]}</b><small>${e[1]}</small></div></div>`).join('');
+  const examItems = m.exames.map(e=>`<div class="exam-item"><span class="dot"></span><div><b>${e[0]}</b><small>${e[1]}</small>${e[2]?`<span class="pedido">No pedido médico: ${e[2]}</span>`:''}</div></div>`).join('');
   const prepItems = m.prep.map(p=>`<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 13 4 4L19 7"/></svg> ${p}</li>`).join('');
   document.getElementById('view-modalidade').innerHTML = `
   <section class="subhero">
@@ -1072,7 +1091,7 @@ function renderModalidade(key){
 
   <section class="cta-final">
     <div class="container">
-      <h2>Vamos agendar ${m.gen} ${m.nome.split(' com ')[0].split(' (')[0].toLowerCase()}?</h2>
+      <h2>${m.cta || `Vamos agendar ${m.gen} ${m.nome.split(' com ')[0].split(' (')[0].toLowerCase()}?`}</h2>
       <p>Mande o nome do exame ou uma foto do pedido pelo WhatsApp. A gente cuida do resto.</p>
       <a href="#" class="cta-wa" onclick="wa(event,'Quero agendar: ${m.nome}')">Agendar no WhatsApp</a>
     </div>
@@ -1103,13 +1122,13 @@ function buildLists(){
 
 /* ============ FINDER ============ */
 const ALL = [];
-for(const k in MODALIDADES){ MODALIDADES[k].exames.forEach(e=>ALL.push({label:e[0],key:k})); ALL.push({label:MODALIDADES[k].nome,key:k}); }
+for(const k in MODALIDADES){ MODALIDADES[k].exames.forEach(e=>ALL.push({label:e[0],key:k,busca:e.join(' ')})); ALL.push({label:MODALIDADES[k].nome,key:k,busca:MODALIDADES[k].nome}); }
 function filterExams(q){
   const res=document.getElementById('finderRes'); const none=document.getElementById('finderNone');
   q=q.trim().toLowerCase();
   if(!q){ res.innerHTML=''; none.style.display='none'; return; }
   const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-  const hits=ALL.filter(x=>norm(x.label).includes(norm(q))).slice(0,6);
+  const hits=ALL.filter(x=>norm(x.busca).includes(norm(q))).slice(0,6);
   if(hits.length){ res.innerHTML=hits.map(h=>`<span class="chip" onclick="go('modalidade','${h.key}')">${h.label}</span>`).join(''); none.style.display='none'; }
   else { res.innerHTML=''; none.style.display='block'; }
 }
