@@ -73,17 +73,18 @@ header{
 }
 .menu>li>a:hover,.menu>li>button:hover{background:var(--creme);color:var(--terra)}
 .menu .caret{width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-top:-3px;transition:transform .2s}
-.has-drop:hover .caret{transform:rotate(225deg);margin-top:2px}
+.has-drop:hover .caret,.has-drop.open .caret{transform:rotate(225deg);margin-top:2px}
 .drop{
   position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(8px);
   background:var(--branco);border:1px solid var(--linha);border-radius:16px;
   box-shadow:var(--sombra);padding:10px;min-width:280px;
   opacity:0;visibility:hidden;transition:.2s;
 }
-.has-drop:hover .drop{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.has-drop:hover .drop,.has-drop.open .drop,.has-drop:focus-within .drop{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
 .drop a{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:10px;font-size:.95rem;font-weight:600;transition:background .15s}
 .drop a:hover{background:var(--creme2)}
-.drop a . doticon,.drop .ic{width:30px;height:30px;flex-shrink:0;display:grid;place-items:center;border-radius:8px;background:var(--grad-suave)}
+.drop .ic{width:30px;height:30px;flex-shrink:0;display:grid;place-items:center;border-radius:8px;background:var(--grad-suave)}
+.drop .ic svg{width:17px;height:17px;color:var(--terra)}
 .drop a span small{display:block;font-weight:400;font-size:.78rem;color:var(--cinza);line-height:1.2}
 .cta-wa{
   display:inline-flex;align-items:center;gap:9px;
@@ -96,6 +97,9 @@ header{
 .cta-wa svg{width:18px;height:18px}
 .burger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
 .burger span{width:24px;height:2.5px;background:var(--tinta);border-radius:3px;transition:.25s}
+.burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 
 /* ---------- HERO ---------- */
 .hero{background:var(--creme);overflow:hidden;padding:56px 0 0}
@@ -377,7 +381,6 @@ footer ul a:hover{color:#fff}
 @media(max-width:980px){
   .hero{padding-bottom:0}
   .hero-grid{grid-template-columns:1fr;gap:24px}
-  .hero-art{order:-1}
   .hero-photo{max-width:440px}
   .exgrid,.feats,.tgrid,.pk-grid,.steps,.why-row{grid-template-columns:1fr 1fr}
   .cub{grid-template-columns:1fr;padding:40px}
@@ -392,7 +395,9 @@ footer ul a:hover{color:#fff}
   .logo-main{height:36px}
   .menu.open{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--linha);padding:14px;gap:2px;align-items:stretch;max-height:calc(100vh - 64px);overflow-y:auto;box-shadow:0 16px 30px rgba(0,0,0,.10)}
   .menu.open>li>a,.menu.open>li>button{width:100%;justify-content:space-between;font-size:1.05rem;padding:13px 14px}
-  .menu.open .drop{position:static;transform:none;opacity:1;visibility:visible;box-shadow:none;border:none;min-width:0;padding:4px 0 8px 14px}
+  .menu.open .drop{position:static;transform:none;opacity:1;visibility:visible;box-shadow:none;border:none;min-width:0;padding:4px 0 8px 14px;display:none}
+  .menu.open .has-drop.open .drop{display:block}
+  .menu.open>li>a,.menu.open>li>button{min-height:48px}
 }
 @media(max-width:680px){
   .exgrid,.feats,.tgrid,.pk-grid,.steps,.why-row,.exam-list,.valores{grid-template-columns:1fr}
@@ -401,6 +406,16 @@ footer ul a:hover{color:#fff}
   .trust .it{font-size:.85rem;flex:1 1 42%}
   .fgrid{grid-template-columns:1fr}
   .cub{padding:30px}
+}
+@media(max-width:400px){
+  .container{padding:0 16px}
+  h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
+  .hero{padding-top:32px}
+  .hero h1{font-size:2.05rem}
+  .subhero h1{font-size:1.8rem}
+  .sec h2,.cta-final h2{font-size:1.6rem}
+  .cub{padding:26px 20px}
+  .finder{padding:18px}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
@@ -418,7 +433,7 @@ footer ul a:hover{color:#fff}
       <ul class="menu" id="menu">
         <li><a href="#home" onclick="go('home')">Início</a></li>
         <li class="has-drop">
-          <button aria-haspopup="true">Exames <i class="caret"></i></button>
+          <button aria-haspopup="true" aria-expanded="false" aria-controls="examesDrop">Exames <i class="caret"></i></button>
           <div class="drop" id="examesDrop"><!-- preenchido por JS --></div>
         </li>
         <li><a href="#checkup" onclick="go('checkup')">Check-up</a></li>
@@ -432,7 +447,7 @@ footer ul a:hover{color:#fff}
       Agendar no WhatsApp
     </a>
 
-    <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -520,7 +535,7 @@ footer ul a:hover{color:#fff}
         <div class="mini">
           <div class="pk"><b>Essencial</b><span>R$ 410<small>3 itens</small></span></div>
           <div class="pk"><b>Vitalis</b><span>R$ 930<small>6 itens</small></span></div>
-          <div class="pk"><b>Invictus</b><span>R$ 2.840<small>completo</small></span></div>
+          <div class="pk"><b>Invictus</b><span>R$ 2.840<small>7 itens</small></span></div>
         </div>
       </div>
     </div>
@@ -741,7 +756,7 @@ footer ul a:hover{color:#fff}
         <span class="lbl">No que acreditamos</span>
         <h2>Os valores que guiam cada atendimento</h2>
       </div>
-      <div class="valores" style="grid-template-columns:repeat(2,1fr);margin-top:30px">
+      <div class="valores" style="margin-top:30px">
         <div class="valor"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9"/></svg></div><div><b>Precisão</b><small>Cada exame é uma decisão clínica, não um procedimento.</small></div></div>
         <div class="valor"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.5-1.5 2-3 2-5a4 4 0 0 0-7-2.7A4 4 0 0 0 7 9c0 2 .5 3.5 2 5l3 3 3-3Z"/></svg></div><div><b>Humanização</b><small>Toda vida merece ser cuidada com carinho.</small></div></div>
         <div class="valor"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3Z"/></svg></div><div><b>Prevenção</b><small>Cuidar é melhor do que tratar.</small></div></div>
@@ -849,7 +864,7 @@ footer ul a:hover{color:#fff}
       </div>
       <div class="fcontact">
         <h4>Contato</h4>
-        <div><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg> (47) 99616-1220</div>
+        <div><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.4-.5-.6-.5h-.6c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.3c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3a8.3 8.3 0 1 1 6.9 3.8Z"/></svg> <a href="#" onclick="wa(event)">(47) 99616-1220</a></div>
         <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> R. Samuel Heusi, 178 — Centro<br>R. José Testoni, 1 — Dom Bosco</div>
         <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Seg a sex · 8h às 18h</div>
       </div>
@@ -966,13 +981,30 @@ const MODALIDADES = {
 };
 
 /* ============ RENDER ============ */
+const TITULO = 'MCI — Centro Médico de Itajaí';
+const TITULOS = {home:TITULO+' | Exames de imagem com agilidade e acolhimento', checkup:'Check-up MCI | '+TITULO, mci:'A MCI | '+TITULO, parceiros:'Convênios e empresas | '+TITULO};
+
+// Muda o endereço; quem desenha a tela é o route(), disparado pelo hashchange.
+// Assim voltar/avançar do navegador funcionam igual a um clique.
 function go(view, key){
-  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-  if(view==='modalidade'){ renderModalidade(key); document.getElementById('view-modalidade').classList.add('active'); location.hash='exame/'+key; }
-  else { document.getElementById('view-'+view).classList.add('active'); location.hash=view; }
-  window.scrollTo({top:0,behavior:'instant'});
+  const h = view==='modalidade' ? 'exame/'+key : view;
+  if(location.hash.slice(1)===h) show(view, key); else location.hash = h;
   closeMenu();
   return false;
+}
+
+function show(view, key){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  if(view==='modalidade'){
+    renderModalidade(key);
+    document.getElementById('view-modalidade').classList.add('active');
+    document.title = MODALIDADES[key].nome+' em Itajaí | '+TITULO;
+  } else {
+    document.getElementById('view-'+view).classList.add('active');
+    document.title = TITULOS[view];
+  }
+  window.scrollTo({top:0,behavior:'instant'});
+  closeMenu();
 }
 
 function renderModalidade(key){
@@ -1086,18 +1118,36 @@ function filterExams(q){
 function wa(e,msg){ if(e)e.preventDefault(); const t=msg?('?text='+encodeURIComponent('Olá! '+msg)):''; window.open(WA+t,'_blank'); return false; }
 
 /* ============ MENU MOBILE ============ */
-function toggleMenu(){ document.getElementById('menu').classList.toggle('open'); }
-function closeMenu(){ document.getElementById('menu').classList.remove('open'); }
+function setMenu(open){
+  document.getElementById('menu').classList.toggle('open', open);
+  const b=document.getElementById('burger'); b.classList.toggle('open', open); b.setAttribute('aria-expanded', open);
+}
+function toggleMenu(){ setMenu(!document.getElementById('menu').classList.contains('open')); }
+function closeMenu(){ setMenu(false); setDrop(false); }
+
+/* Dropdown "Exames": hover no desktop, clique/toque e teclado em qualquer tela */
+function setDrop(open){
+  const li=document.querySelector('.has-drop'); li.classList.toggle('open', open);
+  li.querySelector('button').setAttribute('aria-expanded', open);
+}
+document.querySelector('.has-drop>button').addEventListener('click', e=>{
+  e.stopPropagation(); setDrop(!document.querySelector('.has-drop').classList.contains('open'));
+});
+document.addEventListener('click', e=>{
+  if(!e.target.closest('.has-drop')) setDrop(false);
+  if(!e.target.closest('#menu') && !e.target.closest('#burger')) setMenu(false);
+});
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeMenu(); });
 
 /* ============ ROTAS ============ */
 function route(){
   const h=location.hash.replace('#','');
-  if(h.startsWith('exame/')){ const k=h.split('/')[1]; if(MODALIDADES[k]){go('modalidade',k);return;} }
-  if(['checkup','mci','parceiros','home'].includes(h)){ go(h); return; }
-  go('home');
+  if(h.startsWith('exame/')){ const k=h.split('/')[1]; if(MODALIDADES[k]){ show('modalidade',k); return; } }
+  if(['checkup','mci','parceiros','home'].includes(h)){ show(h); return; }
+  show('home');
 }
 buildLists();
-window.addEventListener('hashchange',()=>{ /* navegação por hash já tratada nos onclick */ });
+window.addEventListener('hashchange', route);
 route();
 </script>
 </body>
